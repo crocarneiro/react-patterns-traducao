@@ -7,3 +7,4 @@
 * [Mesclagem de props Desestruturadas com Outros Valores](merge_destructured_props_with_other_values.md)
 * [Renderização Condicional](conditional_rendering.md)
 * [Tipos de Filhos](children_types.md)
+* [Filhos do Tipo Array](array_as_children.md)

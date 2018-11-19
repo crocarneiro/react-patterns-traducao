@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Tipos de Filhos · GitBook</title>
+        <title>Função Componente · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="array_as_children.html" />
+    <link rel="next" href="destructuring_props.html" />
     
     
-    <link rel="prev" href="conditional_rendering.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -102,7 +102,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="function_component.html">
+        <li class="chapter active" data-level="1.2" data-path="function_component.html">
             
                 <a href="function_component.html">
             
@@ -167,7 +167,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="children_types.html">
+        <li class="chapter " data-level="1.7" data-path="children_types.html">
             
                 <a href="children_types.html">
             
@@ -186,19 +186,6 @@
             
                     
                     Filhos do Tipo Array
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="function_as_children.html">
-            
-                <a href="function_as_children.html">
-            
-                    
-                    Filhos do Tipo Função
             
                 </a>
             
@@ -236,7 +223,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Tipos de Filhos</a>
+        <a href="." >Função Componente</a>
     </h1>
 </div>
 
@@ -251,13 +238,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tipos-de-filhos">Tipos de Filhos</h1>
-<p>O React pode renderizar filhos de quase todos os tipos. Na maioria dos casos isso &#xE9;, ou um <code>array</code>, ou uma <code>string</code>.</p>
-<h3 id="string"><code>String</code></h3>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                <h1 id="fun&#xE7;&#xE3;o-componente">Fun&#xE7;&#xE3;o componente</h1>
+<p>Fun&#xE7;&#xF5;es componentes s&#xE3;o o jeito mais simples de declarar componentes reus&#xE1;veis. Eles s&#xE3;o apenas fun&#xE7;&#xF5;es.</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi there!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
 </code></pre>
-<h3 id="array"><code>Array</code></h3>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{[&quot;Hello &quot;, <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>World<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>, &quot;!&quot;]}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<p>Colete as <code>props</code> do primeiro argumento da sua fun&#xE7;&#xE3;o.</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></pre>
+<p>Defina qualquer n&#xFA;mero de vari&#xE1;veis locais para fazer o que voc&#xEA; precisa na sua fun&#xE7;&#xE3;o componente.</p>
+<p><strong>Sempre retorne seu componente React no final.</strong></p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">let</span> style = {
+    fontWeight: <span class="hljs-string">&quot;bold&quot;</span>,
+    color: context.color
+  };
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{style}</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></pre>
+<p>Configure <code>props</code> padr&#xF5;es usando <code>defaultProps</code>.</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+Greeting.defaultProps = {
+  name: <span class="hljs-string">&quot;Guest&quot;</span>
+};
 </code></pre>
 
                                 
@@ -286,12 +295,12 @@
 
             
                 
-                <a href="conditional_rendering.html" class="navigation navigation-prev " aria-label="Previous page: Renderização Condicional">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introdução">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="array_as_children.html" class="navigation navigation-next " aria-label="Next page: Filhos do Tipo Array">
+                <a href="destructuring_props.html" class="navigation navigation-next " aria-label="Next page: Atribuição via Desestruturação">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -302,7 +311,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tipos de Filhos","level":"1.7","depth":1,"next":{"title":"Filhos do Tipo Array","level":"1.8","depth":1,"path":"array_as_children.md","ref":"array_as_children.md","articles":[]},"previous":{"title":"Renderização Condicional","level":"1.6","depth":1,"path":"conditional_rendering.md","ref":"conditional_rendering.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"children_types.md","mtime":"2018-11-19T21:42:27.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T22:52:32.726Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Função Componente","level":"1.2","depth":1,"next":{"title":"Atribuição via Desestruturação","level":"1.3","depth":1,"path":"destructuring_props.md","ref":"destructuring_props.md","articles":[]},"previous":{"title":"Introdução","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"function_component.md","mtime":"2018-11-14T13:27:44.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T22:46:42.420Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

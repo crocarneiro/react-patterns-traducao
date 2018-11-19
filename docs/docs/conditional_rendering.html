@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Tipos de Filhos · GitBook</title>
+        <title>Renderização Condicional · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="array_as_children.html" />
+    <link rel="next" href="children_types.html" />
     
     
-    <link rel="prev" href="conditional_rendering.html" />
+    <link rel="prev" href="merge_destructured_props_with_other_values.html" />
     
 
     </head>
@@ -154,7 +154,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="conditional_rendering.html">
+        <li class="chapter active" data-level="1.6" data-path="conditional_rendering.html">
             
                 <a href="conditional_rendering.html">
             
@@ -167,7 +167,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="children_types.html">
+        <li class="chapter " data-level="1.7" data-path="children_types.html">
             
                 <a href="children_types.html">
             
@@ -186,19 +186,6 @@
             
                     
                     Filhos do Tipo Array
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="function_as_children.html">
-            
-                <a href="function_as_children.html">
-            
-                    
-                    Filhos do Tipo Função
             
                 </a>
             
@@ -236,7 +223,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Tipos de Filhos</a>
+        <a href="." >Renderização Condicional</a>
     </h1>
 </div>
 
@@ -251,14 +238,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tipos-de-filhos">Tipos de Filhos</h1>
-<p>O React pode renderizar filhos de quase todos os tipos. Na maioria dos casos isso &#xE9;, ou um <code>array</code>, ou uma <code>string</code>.</p>
-<h3 id="string"><code>String</code></h3>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                <h1 id="renderiza&#xE7;&#xE3;o-condicional">Renderiza&#xE7;&#xE3;o Condicional</h1>
+<p>Voc&#xEA; n&#xE3;o pode utilizar comandos <code>if/else</code> dentro da declara&#xE7;&#xE3;o de um componente, portanto, o <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional" target="_blank">operador condicional (tern&#xE1;rio)</a> e a <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operadores_Logicos#Short-Circuit_Evaluation" target="_blank">avalia&#xE7;&#xE3;o de curto-circuito (short-circuit)</a> s&#xE3;o seus amigos.</p>
+<h3 id="if"><code>if</code></h3>
+<pre><code class="lang-jsx">{
+  condition &amp;&amp; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `truthy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
+}
 </code></pre>
-<h3 id="array"><code>Array</code></h3>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{[&quot;Hello &quot;, <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>World<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>, &quot;!&quot;]}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<p><a href="https://codesandbox.io/s/n32yo273nl" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit n32yo273nl"></a></p>
+<h3 id="unless"><code>unless</code></h3>
+<pre><code class="lang-jsx">{
+  condition || <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `falsy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
+}
 </code></pre>
+<p><a href="https://codesandbox.io/s/zw18667l1m" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit 2018_11_19_react_conditional_rendering_test2"></a></p>
+<h3 id="if-else"><code>if-else</code></h3>
+<pre><code class="lang-jsx">{
+  condition ? (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `truthy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+  ) : (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `falsy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p><a href="https://codesandbox.io/s/jv8jro7969" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit 2018_11_19_react_conditional_rendering_test3"></a></p>
 
                                 
                                 </section>
@@ -286,12 +289,12 @@
 
             
                 
-                <a href="conditional_rendering.html" class="navigation navigation-prev " aria-label="Previous page: Renderização Condicional">
+                <a href="merge_destructured_props_with_other_values.html" class="navigation navigation-prev " aria-label="Previous page: Mesclagem de props Desestruturadas com Outros Valores">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="array_as_children.html" class="navigation navigation-next " aria-label="Next page: Filhos do Tipo Array">
+                <a href="children_types.html" class="navigation navigation-next " aria-label="Next page: Tipos de Filhos">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -302,7 +305,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tipos de Filhos","level":"1.7","depth":1,"next":{"title":"Filhos do Tipo Array","level":"1.8","depth":1,"path":"array_as_children.md","ref":"array_as_children.md","articles":[]},"previous":{"title":"Renderização Condicional","level":"1.6","depth":1,"path":"conditional_rendering.md","ref":"conditional_rendering.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"children_types.md","mtime":"2018-11-19T21:42:27.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T22:52:32.726Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Renderização Condicional","level":"1.6","depth":1,"next":{"title":"Tipos de Filhos","level":"1.7","depth":1,"path":"children_types.md","ref":"children_types.md","articles":[]},"previous":{"title":"Mesclagem de props Desestruturadas com Outros Valores","level":"1.5","depth":1,"path":"merge_destructured_props_with_other_values.md","ref":"merge_destructured_props_with_other_values.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"conditional_rendering.md","mtime":"2018-11-19T20:37:04.613Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T22:46:42.420Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

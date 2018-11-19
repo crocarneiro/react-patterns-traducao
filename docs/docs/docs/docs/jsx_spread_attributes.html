@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introdução · GitBook</title>
+        <title>Propagação de Atributos JSX · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="function_component.html" />
+    <link rel="next" href="merge_destructured_props_with_other_values.html" />
     
+    
+    <link rel="prev" href="destructuring_props.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -118,7 +120,7 @@
                 <a href="destructuring_props.html">
             
                     
-                    Atribuição via Desestruturação
+                    Atribuição via desestruturação
             
                 </a>
             
@@ -126,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="jsx_spread_attributes.html">
+        <li class="chapter active" data-level="1.4" data-path="jsx_spread_attributes.html">
             
                 <a href="jsx_spread_attributes.html">
             
@@ -144,33 +146,7 @@
                 <a href="merge_destructured_props_with_other_values.html">
             
                     
-                    Mesclagem de props Desestruturadas com Outros Valores
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="conditional_rendering.html">
-            
-                <a href="conditional_rendering.html">
-            
-                    
-                    Renderização Condicional
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="children_types.html">
-            
-                <a href="children_types.html">
-            
-                    
-                    Tipos de Filhos
+                    Mesclagem de props desestruturadas com outros valores
             
                 </a>
             
@@ -208,7 +184,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introdução</a>
+        <a href="." >Propagação de Atributos JSX</a>
     </h1>
 </div>
 
@@ -223,9 +199,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Tradu&#xE7;&#xE3;o do mini e-book <a href="https://reactpatterns.com/" target="_blank">React Patterns</a> com algumas adapta&#xE7;&#xF5;es.</p>
-<p><strong>Dependendo das altera&#xE7;&#xF5;es no e-book base esta tradu&#xE7;&#xE3;o pode estar incompleta.</strong></p>
+                                <h1 id="propaga&#xE7;&#xE3;o-de-atributos-jsx">Propaga&#xE7;&#xE3;o de Atributos JSX</h1>
+<p>Propaga&#xE7;&#xE3;o de atributos &#xE9; uma caracter&#xED;stica do <a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank">JSX</a>. &#xC9; uma sintaxe para prover as propriedades de um objeto como atributos JSX.</p>
+<p>Seguindo o exemplo da <a href="destructuring_props.html">atribui&#xE7;&#xE3;o via desestrutura&#xE7;&#xE3;o</a>, n&#xF3;s podemos propagar <code>restProps</code> atrav&#xE9;s da nossa <code>&lt;div&gt;</code>.</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name, ...restProps }</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> {<span class="hljs-attr">...restProps</span>}&gt;</span>Hi {name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></pre>
+<p><a href="https://codesandbox.io/s/ov669r8xwy" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit React rest parameter syntax test"></a></p>
+<p>Isso torna o componente <code>Greeting</code> super flex&#xED;vel. N&#xF3;s podemos passar atributos DOM para <code>Greeting</code> e confiar que eles ser&#xE3;o propagados atrav&#xE9;s da <code>div</code>.</p>
+<pre><code class="lang-jsx">&lt;Greeting name=<span class="hljs-string">&quot;Fancy pants&quot;</span> className=<span class="hljs-string">&quot;fancy-greeting&quot;</span> id=<span class="hljs-string">&quot;user-greeting&quot;</span> /&gt;
+</code></pre>
+<p>Evite propagar <code>props</code> que n&#xE3;o sejam atributos DOM para os componentes.</p>
+<p><a href="destructuring_props.html">atribui&#xE7;&#xE3;o via desestrutura&#xE7;&#xE3;o</a> &#xE9; popular porque te d&#xE1; a oportunidade de separar as <code>props</code> espec&#xED;ficas do componente dos atributos DOM espec&#xED;ficos da plataforma.</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name, ...platformProps }</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> {<span class="hljs-attr">...platformProps</span>}&gt;</span>Hi {name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -253,8 +243,12 @@
 
             
                 
+                <a href="destructuring_props.html" class="navigation navigation-prev " aria-label="Previous page: Atribuição via desestruturação">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="function_component.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Função Componente">
+                
+                <a href="merge_destructured_props_with_other_values.html" class="navigation navigation-next " aria-label="Next page: Mesclagem de props desestruturadas com outros valores">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -265,7 +259,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introdução","level":"1.1","depth":1,"next":{"title":"Função Componente","level":"1.2","depth":1,"path":"function_component.md","ref":"function_component.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-11-14T12:29:02.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T21:23:55.458Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Propagação de Atributos JSX","level":"1.4","depth":1,"next":{"title":"Mesclagem de props desestruturadas com outros valores","level":"1.5","depth":1,"path":"merge_destructured_props_with_other_values.md","ref":"merge_destructured_props_with_other_values.md","articles":[]},"previous":{"title":"Atribuição via desestruturação","level":"1.3","depth":1,"path":"destructuring_props.md","ref":"destructuring_props.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jsx_spread_attributes.md","mtime":"2018-11-14T13:54:46.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-14T20:10:57.888Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -273,6 +267,10 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

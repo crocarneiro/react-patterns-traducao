@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introdução · GitBook</title>
+        <title>Renderização Condicional · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="function_component.html" />
     
+    <link rel="prev" href="merge_destructured_props_with_other_values.html" />
     
 
     </head>
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -152,25 +152,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="conditional_rendering.html">
+        <li class="chapter active" data-level="1.6" data-path="conditional_rendering.html">
             
                 <a href="conditional_rendering.html">
             
                     
                     Renderização Condicional
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="children_types.html">
-            
-                <a href="children_types.html">
-            
-                    
-                    Tipos de Filhos
             
                 </a>
             
@@ -208,7 +195,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introdução</a>
+        <a href="." >Renderização Condicional</a>
     </h1>
 </div>
 
@@ -223,9 +210,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Tradu&#xE7;&#xE3;o do mini e-book <a href="https://reactpatterns.com/" target="_blank">React Patterns</a> com algumas adapta&#xE7;&#xF5;es.</p>
-<p><strong>Dependendo das altera&#xE7;&#xF5;es no e-book base esta tradu&#xE7;&#xE3;o pode estar incompleta.</strong></p>
+                                <h1 id="renderiza&#xE7;&#xE3;o-condicional">Renderiza&#xE7;&#xE3;o Condicional</h1>
+<p>Voc&#xEA; n&#xE3;o pode utilizar comandos <code>if/else</code> dentro da declara&#xE7;&#xE3;o de um componente, portanto, o <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional" target="_blank">operador condicional (tern&#xE1;rio)</a> e a <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operadores_Logicos#Short-Circuit_Evaluation" target="_blank">avalia&#xE7;&#xE3;o de curto-circuito (short-circuit)</a> s&#xE3;o seus amigos.</p>
+<h3 id="if"><code>if</code></h3>
+<pre><code class="lang-jsx">{
+  condition &amp;&amp; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `truthy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
+}
+</code></pre>
+<p><a href="https://codesandbox.io/s/n32yo273nl" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit n32yo273nl"></a></p>
+<h3 id="unless"><code>unless</code></h3>
+<pre><code class="lang-jsx">{
+  condition || <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `falsy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
+}
+</code></pre>
+<p><a href="https://codesandbox.io/s/zw18667l1m" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit 2018_11_19_react_conditional_rendering_test2"></a></p>
+<h3 id="if-else"><code>if-else</code></h3>
+<pre><code class="lang-jsx">{
+  condition ? (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `truthy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+  ) : (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Rendered when `falsy`<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p><a href="https://codesandbox.io/s/jv8jro7969" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit 2018_11_19_react_conditional_rendering_test3"></a></p>
 
                                 
                                 </section>
@@ -253,10 +261,10 @@
 
             
                 
-                
-                <a href="function_component.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Função Componente">
-                    <i class="fa fa-angle-right"></i>
+                <a href="merge_destructured_props_with_other_values.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Mesclagem de props Desestruturadas com Outros Valores">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -265,7 +273,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introdução","level":"1.1","depth":1,"next":{"title":"Função Componente","level":"1.2","depth":1,"path":"function_component.md","ref":"function_component.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-11-14T12:29:02.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T21:23:55.458Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Renderização Condicional","level":"1.6","depth":1,"previous":{"title":"Mesclagem de props Desestruturadas com Outros Valores","level":"1.5","depth":1,"path":"merge_destructured_props_with_other_values.md","ref":"merge_destructured_props_with_other_values.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"conditional_rendering.md","mtime":"2018-11-19T20:37:04.613Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T21:04:11.224Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

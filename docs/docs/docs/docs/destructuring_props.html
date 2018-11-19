@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Função Componente · GitBook</title>
+        <title>Atribuição via desestruturação · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="destructuring_props.html" />
+    <link rel="next" href="jsx_spread_attributes.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="function_component.html" />
     
 
     </head>
@@ -102,7 +102,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="function_component.html">
+        <li class="chapter " data-level="1.2" data-path="function_component.html">
             
                 <a href="function_component.html">
             
@@ -115,12 +115,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="destructuring_props.html">
+        <li class="chapter active" data-level="1.3" data-path="destructuring_props.html">
             
                 <a href="destructuring_props.html">
             
                     
-                    Atribuição via Desestruturação
+                    Atribuição via desestruturação
             
                 </a>
             
@@ -146,20 +146,7 @@
                 <a href="merge_destructured_props_with_other_values.html">
             
                     
-                    Mesclagem de props Desestruturadas com Outros Valores
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="conditional_rendering.html">
-            
-                <a href="conditional_rendering.html">
-            
-                    
-                    Renderização Condicional
+                    Mesclagem de props desestruturadas com outros valores
             
                 </a>
             
@@ -197,7 +184,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Função Componente</a>
+        <a href="." >Atribuição via desestruturação</a>
     </h1>
 </div>
 
@@ -212,36 +199,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fun&#xE7;&#xE3;o-componente">Fun&#xE7;&#xE3;o componente</h1>
-<p>Fun&#xE7;&#xF5;es componentes s&#xE3;o o jeito mais simples de declarar componentes reus&#xE1;veis. Eles s&#xE3;o apenas fun&#xE7;&#xF5;es.</p>
-<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi there!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
-}
+                                <h1 id="atribui&#xE7;&#xE3;o-via-desestrutura&#xE7;&#xE3;o">Atribui&#xE7;&#xE3;o via Desestrutura&#xE7;&#xE3;o</h1>
+<p><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Atribuicao_via_desestruturacao" target="_blank">Atribui&#xE7;&#xE3;o via desestrutura&#xE7;&#xE3;o</a> &#xE9; uma caracter&#xED;stica do Javascript que foi adicionada &#xE0; linguagem no ES2015, ent&#xE3;o, pode n&#xE3;o parecer muito familiar. Pense nela como o oposto da atribui&#xE7;&#xE3;o literal.</p>
+<pre><code class="lang-jsx"><span class="hljs-keyword">let</span> person = { name: <span class="hljs-string">&quot;chantastic&quot;</span> };
+<span class="hljs-keyword">let</span> { name } = person;
 </code></pre>
-<p>Colete as <code>props</code> do primeiro argumento da sua fun&#xE7;&#xE3;o.</p>
+<p>Funciona com vetores tamb&#xE9;m.</p>
+<pre><code class="lang-jsx"><span class="hljs-keyword">let</span> things = [<span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-string">&quot;two&quot;</span>];
+<span class="hljs-keyword">let</span> [first, second] = things;
+</code></pre>
+<p>Atribui&#xE7;&#xE3;o via desestrutura&#xE7;&#xE3;o &#xE9; muito usada in fun&#xE7;&#xF5;es componentes. Essas declara&#xE7;&#xF5;es de componentes abaixo s&#xE3;o equivalentes:</p>
 <pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
   <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
 }
-</code></pre>
-<p>Defina qualquer n&#xFA;mero de vari&#xE1;veis locais para fazer o que voc&#xEA; precisa na sua fun&#xE7;&#xE3;o componente.</p>
-<p><strong>Sempre retorne seu componente React no final.</strong></p>
-<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">let</span> style = {
-    fontWeight: <span class="hljs-string">&quot;bold&quot;</span>,
-    color: context.color
-  };
 
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{style}</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name }</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
 }
 </code></pre>
-<p>Configure <code>props</code> padr&#xF5;es usando <code>defaultProps</code>.</p>
-<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {props.name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+<p>Existe uma sintaxe para coletar as <code>props</code> restantes para dentro de um objeto, ela &#xE9; chamada de <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/rest_parameters" target="_blank">sintaxe de par&#xE2;metros rest</a> e se parece com isso:</p>
+<pre><code class="lang-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name, ...restProps }</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hi {name}!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
 }
-Greeting.defaultProps = {
-  name: <span class="hljs-string">&quot;Guest&quot;</span>
-};
 </code></pre>
+<p><a href="https://codesandbox.io/s/ov669r8xwy" target="_blank"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit React rest parameter syntax test"></a></p>
+<p>Aqueles tr&#xEA;s pontos (<code>...</code>) pegam todas as propriedades restantes e atribuem-nas ao objeto <code>restProps</code>.</p>
+<p>Ent&#xE3;o, o que voc&#xEA; faz com o <code>restProps</code> uma vez que voc&#xEA; o tem?</p>
+<p>Continue lendo...</p>
 
                                 
                                 </section>
@@ -269,12 +253,12 @@ Greeting.defaultProps = {
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introdução">
+                <a href="function_component.html" class="navigation navigation-prev " aria-label="Previous page: Função Componente">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="destructuring_props.html" class="navigation navigation-next " aria-label="Next page: Atribuição via Desestruturação">
+                <a href="jsx_spread_attributes.html" class="navigation navigation-next " aria-label="Next page: Propagação de Atributos JSX">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -285,7 +269,7 @@ Greeting.defaultProps = {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Função Componente","level":"1.2","depth":1,"next":{"title":"Atribuição via Desestruturação","level":"1.3","depth":1,"path":"destructuring_props.md","ref":"destructuring_props.md","articles":[]},"previous":{"title":"Introdução","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"function_component.md","mtime":"2018-11-14T13:27:44.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-19T21:04:11.224Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Atribuição via desestruturação","level":"1.3","depth":1,"next":{"title":"Propagação de Atributos JSX","level":"1.4","depth":1,"path":"jsx_spread_attributes.md","ref":"jsx_spread_attributes.md","articles":[]},"previous":{"title":"Função Componente","level":"1.2","depth":1,"path":"function_component.md","ref":"function_component.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"destructuring_props.md","mtime":"2018-11-14T13:55:41.740Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-14T20:10:57.888Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -293,6 +277,10 @@ Greeting.defaultProps = {
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

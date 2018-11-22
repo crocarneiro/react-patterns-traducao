@@ -9,3 +9,4 @@
 * [Tipos de Filhos](children_types.md)
 * [Filhos do Tipo Array](array_as_children.md)
 * [Filhos do Tipo Função](function_as_children.md)
+* [Renderização de propiedade](render_prop.md)
